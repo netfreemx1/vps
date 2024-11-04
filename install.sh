@@ -97,7 +97,7 @@ install() {
     mkdir -p "$ROOTFS_DIR"
     curl -Ls "${URL}${LATEST_VERSION}/rootfs.tar.xz" -o "$ROOTFS_DIR/rootfs.tar.xz"
     tar -xf "$ROOTFS_DIR/rootfs.tar.xz" -C "$ROOTFS_DIR"
-    mkdir -p "$ROOTFS_DIR/home/container/"
+    mkdir -p "$ROOTFS_DIR/home/container/vps"
 }
 
 # Function to install a specific distro (custom) from a specific URL
@@ -117,7 +117,7 @@ install_custom() {
     # Extract rootfs image to ROOTFS_DIR
     tar -xf "$ROOTFS_DIR/$FILE_NAME" -C "$ROOTFS_DIR"
     # Create ROOTFS_DIR/home/container/ dir
-    mkdir -p "$ROOTFS_DIR/home/container/"
+    mkdir -p "$ROOTFS_DIR/home/container/vps"
 
     # Check whether the OS is installed, then delete the rootfs image file
     if [ ! -e "$ROOTFS_DIR/.installed" ]; then
