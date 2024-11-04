@@ -12,7 +12,7 @@ NC='\033[0m'
 
 # Define the root directory to /home/container.
 # We can only write in /home/container and /tmp in the container.
-ROOTFS_DIR=/home/container
+ROOTFS_DIR=/home/container/vps
 
 export PATH=$PATH:~/.local/usr/bin
 
