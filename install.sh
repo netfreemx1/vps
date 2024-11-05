@@ -12,7 +12,7 @@ NC='\033[0m'
 
 # Define the root directory to /home/container.
 # We can only write in /home/container and /tmp in the container.
-ROOTFS_DIR=/home/container/vps
+ROOTFS_DIR=/home/user/vps
 
 export PATH=$PATH:~/.local/usr/bin
 
@@ -97,7 +97,7 @@ install() {
     mkdir -p "$ROOTFS_DIR"
     curl -Ls "${URL}${LATEST_VERSION}/rootfs.tar.xz" -o "$ROOTFS_DIR/rootfs.tar.xz"
     tar -xf "$ROOTFS_DIR/rootfs.tar.xz" -C "$ROOTFS_DIR"
-    mkdir -p "$ROOTFS_DIR/home/container/vps"
+    mkdir -p "$ROOTFS_DIR/home/user/vps"
 }
 
 # Function to install a specific distro (custom) from a specific URL
@@ -117,7 +117,7 @@ install_custom() {
     # Extract rootfs image to ROOTFS_DIR
     tar -xf "$ROOTFS_DIR/$FILE_NAME" -C "$ROOTFS_DIR"
     # Create ROOTFS_DIR/home/container/ dir
-    mkdir -p "$ROOTFS_DIR/home/container/vps"
+    mkdir -p "$ROOTFS_DIR/home/user/vps"
 
     # Check whether the OS is installed, then delete the rootfs image file
     if [ ! -e "$ROOTFS_DIR/.installed" ]; then
