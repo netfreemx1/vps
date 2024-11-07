@@ -25,10 +25,10 @@ printf "${GREEN}│                           ${RED}© 2011 - 2030 ${PURPLE}Jona
 printf "${GREEN}│                                                                                │${NC}\n"
 printf "${GREEN}╰────────────────────────────────────────────────────────────────────────────────╯${NC}\n"
 printf "                                                                                               \n"
-printf "root@MyVPS:${DIR}#                                                                             \n"
+printf "root@localhost:${DIR}#                                                                             \n"
 
 run_cmd() {
-    read -p "root@MyVPS:$DIR# " CMD
+    read -p "root@localhost:$DIR# " CMD
     eval "$CMD"
     
     # Update DIR after executing command
@@ -37,12 +37,12 @@ run_cmd() {
         DIR="~${PWD#/root}"
     fi
     
-    printf "root@MyVPS:$DIR# \n"
+    printf "root@localhost:$DIR# \n"
     run_user_cmd
 }
 
 run_user_cmd() {
-    read -p "user@MyVPS:$DIR# " CMD2
+    read -p "root@localhost:$DIR# " CMD2
     eval "$CMD2"
     
     # Update DIR after executing command
@@ -51,7 +51,7 @@ run_user_cmd() {
         DIR="~${PWD#/root}"
     fi
     
-    printf "root@MyVPS:$DIR# \n"
+    printf "root@localhost:$DIR# \n"
     run_cmd
 }
 
