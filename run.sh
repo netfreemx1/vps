@@ -25,10 +25,10 @@ printf "${GREEN}│                           ${RED}© 2011 - 2030 ${PURPLE}Jona
 printf "${GREEN}│                                                                                │${NC}\n"
 printf "${GREEN}╰────────────────────────────────────────────────────────────────────────────────╯${NC}\n"
 printf "                                                                                               \n"
-printf "root@localhost:${DIR}#                                                                             \n"
+printf "root@ip-127-0-0-1:${DIR}#                                                                             \n"
 
 run_cmd() {
-    read -p "root@localhost:$DIR# " CMD
+    read -p "root@ip-127-0-0-1:$DIR# " CMD
     eval "$CMD"
     
     # Update DIR after executing command
@@ -37,12 +37,12 @@ run_cmd() {
         DIR="~${PWD#/root}"
     fi
     
-    printf "root@localhost:$DIR# \n"
+    printf "root@ip-127-0-0-1:$DIR# \n"
     run_user_cmd
 }
 
 run_user_cmd() {
-    read -p "root@localhost:$DIR# " CMD2
+    read -p "user@ip-127-0-0-1:$DIR# " CMD2
     eval "$CMD2"
     
     # Update DIR after executing command
@@ -51,7 +51,7 @@ run_user_cmd() {
         DIR="~${PWD#/root}"
     fi
     
-    printf "root@localhost:$DIR# \n"
+    printf "root@ip-127-0-0-1:$DIR# \n"
     run_cmd
 }
 
