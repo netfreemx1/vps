@@ -40,10 +40,6 @@ run_cmd() {
     printf "root@jdv:$DIR# \n"
     run_user_cmd
 }
-
-run_user_cmd() {
-    read -p "user@jdv:$DIR# " CMD2
-    eval "$CMD2"
     
     # Update DIR after executing command
     DIR=$PWD
